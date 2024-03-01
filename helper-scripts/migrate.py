@@ -224,7 +224,7 @@ if args.release or args.branch:
 	remote = subprocess.run(shlex.split("git remote add 4cat_migrate %s" % args.repository), stdout=subprocess.PIPE,
 						stderr=subprocess.PIPE, cwd=cwd, text=True)
 	if remote.stderr:
-		if remote.stderr.strip() == "error: remote 4cat_migrate already exists.":
+		if remote.stderr.strip() == "fatal: remote 4cat_migrate already exists.":
 			# Update URL
 			remote = subprocess.run(shlex.split("git remote set-url 4cat_migrate %s" % args.repository),
 									stdout=subprocess.PIPE,
